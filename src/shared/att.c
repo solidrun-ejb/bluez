@@ -860,6 +860,8 @@ static bool can_read_data(struct io *io, void *user_data)
 	if (bytes_read < 0)
 		return false;
 
+	util_debug(att->debug_callback,att->debug_data,"ATT read MTU=%d received=%ld",att->mtu,bytes_read);
+
 	util_hexdump('>', att->buf, bytes_read,
 					att->debug_callback, att->debug_data);
 
